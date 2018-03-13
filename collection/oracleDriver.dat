@@ -1,0 +1,6 @@
+#jdbc Oracle
+#Tue Mar 13 20:34:30 KST 2018
+user=sejun
+password=sejun
+url=jdbc.oracle.thin\:@localhose\:1521\:xe
+driver=oracle.jdbc.driver.OracleDriver
