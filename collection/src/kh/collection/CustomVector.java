@@ -1,14 +1,15 @@
 package kh.collection;
 
-public class CustomVector {
+public class CustomVector<T> {
+	//수정된 업로드
 	private int size;
-	private Object[] obArr;
+	private T[] obArr;
 	
 	public CustomVector(){
-		this.obArr = new Object[10];
+		this.obArr = (T[])new Object[10];
 	}
 	public CustomVector(int capacity){
-		this.obArr = new Object[capacity];
+		this.obArr = (T[])new Object[capacity];
 	}
 	public int capacity(){
 		return obArr.length;
@@ -25,11 +26,11 @@ public class CustomVector {
 //		return true;
 		return size==0;
 	}
-	public void add(Object i){
-		Object[] temp = null;
+	public void add(T i){
+		T[] temp = null;
 		if(size()==capacity()){
 			temp = obArr;
-			obArr = new Object[temp.length*2];
+			obArr = (T[])new Object[temp.length*2];
 			for(int j = 0; j<obArr.length; j++){
 				obArr[j] = temp[j];
 			}
@@ -42,13 +43,13 @@ public class CustomVector {
 //			}
 //		size++;
 //		}
-	public Object get(int index){
+	public T get(int index){
 		if(index <0|| size<=index){
 			throw new IndexOutOfBoundsException();
 		}
 		return obArr[index];
 	}
-	public int indexOf(Object obj){
+	public int indexOf(T obj){
 		int index = -1;
 		
 		for(int i = 0 ; i<size; i++){
@@ -59,10 +60,10 @@ public class CustomVector {
 		}
 		return index;
 	}
-	public boolean remove(Object obj){
+	public boolean remove(T obj){
 		boolean result = false;
 		int index = indexOf(obj);
-		if(index !=-1){
+		if(index !=-1){ 
 			obArr[index] = null;
 			System.arraycopy(obArr, index+1, obArr, index, size-index-1);
 			obArr[size-1] = null;
